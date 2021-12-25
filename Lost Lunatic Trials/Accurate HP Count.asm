@@ -37,7 +37,7 @@ LessThanTwo:
 ADDIU A0, R0, 0x24 ;all this garbage sets x position depending on how many digits the number has, cba to comment everything
 
 Done:
-ADDIU A1, R0, 0x0 ;set ypos
+ADDIU A1, R0, 0x0 ;set y pos
 JAL 0x802D62D8 ;print hud number function
 ADDIU A2, T0, 0x83A0 ;A2 meme number that is always the same
 
