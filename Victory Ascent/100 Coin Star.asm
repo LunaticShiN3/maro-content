@@ -1,0 +1,48 @@
+.orga 0x21A424 ;behav ID 0x13000624
+.dw 0x00060000
+.dw 0x11014001
+.dw 0x08000000
+.dd 0x0C0000008040F000
+.dw 0x09000000
+
+.orga 0x120F000
+ADDIU SP, SP, 0xFFE8
+OR FP, RA, R0
+
+LUI T4, 0x8036
+LI T0, 0x8033B170
+LW T2, 0x1160(T4)
+
+LW T5, 0x3C(T0)
+SW T5, 0xA0(T2)
+LW T5, 0x40(T0)
+SW T5, 0xA4(T2)
+LW T5, 0x44(T0)
+SW T5, 0xA8(T2)
+
+LH T0, 0xA8(T0)
+ADDIU T1, R0, 99
+BLE T0, T1, AlmostEnd
+
+ADDIU A1, R0, 0
+ADDIU A2, R0, 0
+ADDIU A3, R0, 0
+SW T2, 0x10(SP)
+ADDIU T0, R0, 122
+SW T0, 0x14(SP)
+LI T0, 0x13003E3C
+SW T0, 0x18(SP)
+JAL 0x8029EF64 ;spawn object relative. A0 = BParam2, A1 = rel XPos, A2 = rel YPos, A3 = rel ZPos, 10SP = parent pointer, 14SP = model ID, 18SP = segmented behav ID
+ADDIU A0, R0, 0
+
+ADDIU T0, R0, 6
+SB T0, 0x188(V0)
+
+LUI A0, 0x8036
+JAL 0x802A0568 ;flags for deletion
+LW A0, 0x1160(A0)
+
+AlmostEnd:
+OR RA, FP, R0
+JR RA
+ADDIU SP, SP, 0x18
