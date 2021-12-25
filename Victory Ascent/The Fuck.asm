@@ -1,0 +1,51 @@
+.orga 0x21BA8C
+.dw 0x00060000
+.dw 0x11010001
+.dw 0x08000000
+.dd 0x0C0000008040F300
+.dw 0x09000000
+
+.orga 0x21AB30 ;seg adr 0x13000D30
+.dw 0x00050000
+.dw 0x11012049
+.dd 0x272600000801DA4C
+.dw 0x2D000000
+.dd 0x300000000028FE70
+.dd 0xFFCE03E803E80000
+NOP
+.dd 0x0C000000802FF408
+.dw 0x08000000
+.dd 0x0C000000802FF96C
+.dw 0x09000000
+
+.orga 0x120F300
+ADDIU SP, SP, 0xFFD8
+SW RA, 0x20(SP)
+
+LI T0, 0x8033B170
+LUI T1, 0x8036 ;load struct
+LW T1, 0x1160(T1)
+
+LW T2, 0x154(T1)
+ADDIU T3, R0, 1800
+DIVU T2, T3 ;checks if timer is multiple of 1 min
+MFHI T3
+BNEZ T3, Branch
+
+ADDIU A1, R0, 0
+ADDIU A2, R0, 0
+ADDIU A3, R0, 0
+LW T1, 0x88(T0)
+SW T1, 0x10(SP)
+ADDIU T0, R0, 192
+SW T0, 0x14(SP)
+LI T0, 0x13000D30 ;472C normal goomba
+SW T0, 0x18(SP)
+JAL 0x8029EF64 ;spawn object relative. A0 = BParam2, A1 = rel XPos, A2 = rel YPos, A3 = rel ZPos, 10SP = parent pointer, 14SP = model ID, 18SP = segmented behav ID
+ADDIU A0, R0, 0
+SW V0, 0x68(V0)
+
+Branch:
+LW RA, 0x20(SP)
+JR RA
+ADDIU SP, SP, 0x28
