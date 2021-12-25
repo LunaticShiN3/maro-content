@@ -1,0 +1,77 @@
+START AND POINTERS
+.orga write code
+J (NOP) jump
+JAL (NOP) jump and link
+JR function wrapper memes idk what this does
+
+HEX PASTE
+.db paste byte
+.dh paste half
+.dw paste word
+.dd paste double
+.import - paste an entire fucking file
+
+BASIC OPERATIONS
+ADD add r+r
+ADDI add r+i
+ADDU add r+r but better
+ADDIU add r+i but better
+SUB substract r+r
+SUBU substract r+r but better
+MULT multiply, store result in LO
+MULTU multiply but better
+DIV divide, store result in LO and remainder in HI
+DIVU divide but better
+MFLO move from LO
+MFHI move from HI
+LUI load upper
+LA (aka LI) essentially LUI+ADDIU
+AND bitwise and r+r
+ANDI bitwise and r+i
+OR bitwise or r+r
+ORI bitwise or t+i
+SLL shift thing to the left
+SRL shift thing to the right
+
+LOAD AND STORE
+LB load byte
+LH load half
+LW load word
+SB store byte
+SH store half
+SW store word
+
+BRANCHES (NOP)
+B branch
+BEQ branch if equals
+BEQZ branch if equals zero
+BNE branch if not equals
+BNEZ branch if not equals zero
+
+FLOAT MEMES // ∆ = S if single, D if double
+MTC1 (NOP) move from T to F
+CVT.∆.W convert integer to float
+CVT.W.∆ convert float to integer
+CVT.S.D convert double to single
+CVT.D.S convert single to double
+TRUNC.W.∆ convert float to integer rounding towards 0
+BC1T (NOP) branch if float condition is true
+BC1F (NOP) branch if float condition is false
+LWC1 load float single
+LDC1 load float double
+SWC1 store float single
+SDC1 store float double
+MOV.∆ move float to another register
+
+FLOAT LOGIC // These set a flag called "Float condition" to true if they are true, false if they aren't. This flag can be checked with BC1T and BC1F as previously stated
+C.EQ.∆ true if equals
+C.LE.∆ true if less than or equal
+C.LT.∆ true if less than
+
+FLOAT OPERATIONS
+ABS.∆ absolute value
+ADD.∆ add
+SUB.∆ substract
+MULT.∆ multiply (ADDIU notation, no LO)
+DIV.∆ divide (ADDIU notation, no HI or LO)
+NEG.∆ negate (unsure what that means?)
