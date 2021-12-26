@@ -1,4 +1,4 @@
-.orga 0x21F410 ;Hex Behav: 13005610
+.orga 0x21F410 ;Hex Behav: 0x13005610
 .dw 0x00060000
 .dw 0x11014001
 .dw 0x08000000
