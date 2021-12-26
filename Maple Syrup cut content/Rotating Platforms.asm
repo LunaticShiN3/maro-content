@@ -36,7 +36,7 @@ NOP
 SUBU S6, R0, S6 ;invert speed sign
 
 Skid:
-SW S6, 0x114(T2) ;store speed
+SW S6, 0x114(T2) ;store speed 
 
 LW RA, 0x14(SP)
 JR RA
