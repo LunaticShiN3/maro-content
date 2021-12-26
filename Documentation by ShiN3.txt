@@ -32,7 +32,7 @@ OR bitwise or r+r
 ORI bitwise or t+i
 SLL shift thing to the left
 SRL shift thing to the right
-
+ 
 LOAD AND STORE
 LB load byte
 LH load half
