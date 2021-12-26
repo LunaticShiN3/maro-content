@@ -102,7 +102,7 @@ BEQZ T2, Branch4 ;0x7CC898
 LUI T3, 0x8034
 LUI T4, 0x8036
 LB T5, 0xB249(T3)
-LB T6, 0x7750(T4) ;checks current level and area
+LB T6, 0x7750(T4) ;checks current level and area 
 BNE T5, T6, Branch4
 NOP
 LB T5, 0xB24A(T3)
