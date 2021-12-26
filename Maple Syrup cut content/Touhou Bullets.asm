@@ -6,7 +6,7 @@
 .dw 0x09000000
 
 .orga 0x21A448 ;behav ID 0x13000648
-.dw 0x000C0000 ;Give up object slot if too many objects loaded
+.dw 0x000C0000 ;Give up object slot if too many objects loaded 
 .dw 0x11014041
 .dw 0x08000000
 .dd 0x0C0000008040FB00 ;Bullet behavior
