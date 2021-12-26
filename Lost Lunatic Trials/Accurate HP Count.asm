@@ -17,7 +17,7 @@ NOP
 ANDI A3, A3, 0xFF ;removes upper byte
 
 ADDIU T2, R0, 99
-BLE A3, T2, LessThanThree ;all this garbage sets x position depending on how many digits the number has, cba to comment everything
+BLE A3, T2, LessThanThree ;all this garbage sets x position depending on how many digits the number has, cba to comment everything 
 NOP
 
 ADDIU A0, R0, 0x18
