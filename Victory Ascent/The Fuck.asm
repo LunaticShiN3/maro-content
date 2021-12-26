@@ -41,7 +41,7 @@ ADDIU T0, R0, 192
 SW T0, 0x14(SP)
 LI T0, 0x13000D30 ;472C normal goomba
 SW T0, 0x18(SP)
-JAL 0x8029EF64 ;spawn object relative. A0 = BParam2, A1 = rel XPos, A2 = rel YPos, A3 = rel ZPos, 10SP = parent pointer, 14SP = model ID, 18SP = segmented behav ID
+JAL 0x8029EF64 ;spawn object relative. A0 = BParam2, A1 = rel XPos, A2 = rel YPos, A3 = rel ZPos, 10SP = parent pointer, 14SP = model ID, 18SP = segmented behav ID 
 ADDIU A0, R0, 0
 SW V0, 0x68(V0)
 
