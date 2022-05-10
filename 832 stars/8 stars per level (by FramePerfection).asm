@@ -1,0 +1,23 @@
+.orga 0x351F7
+.db 0xFF
+.orga 0x3521F
+.db 0xFF
+.orga 0x34FDF
+.db 0x08
+
+.orga 0x227A8C
+NOP
+LBU T6, 0x1F(SP)
+ANDI T7, T6, 0x40
+BGTZL T7, Branch1
+ADDIU V0, V0, 0xFFFF
+
+Branch1:
+ANDI T7, T6, 0x80
+BGTZL T7, Branch2
+ADDIU V0, V0, 0xFFFF
+LUI AT, 0x801C
+SB V0, 0x9AA1(AT)
+NOP
+NOP
+NOP
