@@ -1,0 +1,47 @@
+832 STAR TWEAK
+Version 1.1.1
+Made by ShiN3, please credit if used.
+
+832 star limit only applies if the 8 stars per level patch is applied. With 7 stars per level, the limit is 728.
+8 stars per level patch by FramePerfection, included here.
+
+You must use the skip file select tweak, as all save files will be combined.
+This patch works by changing the current save file during gameplay, which will allow each area to contribute stars to a different save file.
+To decide which save file an area counts towards, add an object with behavior ID 0x40CD00 and set B Param 1 to the ID of the file you want:
+File A = 1
+File B = 2
+File C = 3
+File D = 4
+
+Do not place one of these objects in a level that a success warp leads to (usually the overworld), as switching save files before saving the game
+will make the game not actually save.
+This means that if you want to place stars in an overworld, all levels in it must be in the same save file as it (unless you have a more complex overworld system like SR4.5)
+
+As of v1.1, flags and switches should work correctly, and each key and switch should work for all files.
+
+
+
+As file select is skipped, you won't be able to delete save files normally. To delete a save file, call the following function:
+
+ADDIU SP, SP, 0xFFE8
+SW RA, 0x14(SP)
+
+JAL 0x802798FC
+ADDIU A0, R0, 0
+JAL 0x802798FC
+ADDIU A0, R0, 1
+JAL 0x802798FC
+ADDIU A0, R0, 2
+JAL 0x802798FC
+ADDIU A0, R0, 3
+
+LUI T0, 0x8036
+SW R0, 0x7520(T0)
+
+ADDIU A0, R0, 0xFFFE
+JAL 0x802497B8
+OR A1, R0, R0
+
+LW RA, 0x14(SP)
+JR RA
+ADDIU SP, SP, 0x18
